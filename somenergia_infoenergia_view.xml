@@ -38,31 +38,5 @@
         </record>
         <!-- Menú per llistar les tarifes -->
         <menuitem id="menu_tarifes" parent="menu_configuracio" action="action_listado"/>
-        <!-- Formulari per defecte dels periodes de les tarifes -->
-        <record model="ir.ui.view" id="view_periodes_form">
-            <field name="name">giscedata.polissa.tarifa.periodes.form</field>
-            <field name="model">giscedata.polissa.tarifa.periodes</field>
-            <field name="type">form</field>
-            <field name="arch" type="xml">
-                <form string="Periode">
-                    <field name="name" select="1"/>
-                    <field name="tarifa" select="1"/>
-                    <field name="tipus" select="1"/>
-                </form>
-            </field>
-        </record>
-        <!-- Llistat per defecte dels periodes de les tarifes -->
-        <record model="ir.ui.view" id="view_periodes_tree">
-            <field name="name">giscedata.polissa.tarifa.periodes.tree</field>
-            <field name="model">giscedata.polissa.tarifa.periodes</field>
-            <field name="type">tree</field>
-            <field name="arch" type="xml">
-                <tree string="Periodes">
-                    <field name="name"/>
-                    <field name="tarifa"/>
-                    <field name="tipus"/>
-                </tree>
-            </field>
-        </record>
     </data>
 </openerp>
