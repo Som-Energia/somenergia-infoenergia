@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <!-- Definim el menú arrel del mòdul de Infoenergia -->
+        <menuitem id="menu_principal" name="InfoEnergia"/>
+        <!-- Menú de configuració mòdul listado de informes -->
+        <menuitem id="menu_configuracio" name="Listado Informes" parent="menu_principal" sequence="1"/>
+        <!-- Llistat per defecte de les tarifes -->
+        <record model="ir.ui.view" id="view_infoenergia_polissa_tree">
+            <field name="name">giscedata.polissa.tree</field>
+            <field name="model">giscedata.polissa</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="polisses" colors="red:state in ['tall', 'baixa', 'cancelada']">
+                    <field name="name"/>
+                    <field name="data_firma_contracte"/>
+                    <field name="cups"/>
+                    <field name="state"/>
+                    <field name="titular"/>
+                    <field name="cups_direccio"/>
+                    <field name="tarifa"/>
+                    <field name="potencia"/>
+                    <field name="tensio"/>
+                    <field name="cnae"/>
+                    <field name="tg"/>
+                    <field name="autoconsumo"/>
+                    <field name="firmat" invisible="1" select="1"/>
+                </tree>
+            </field>
+        </record>
+        <!-- Acció per obrir el llistat de tarifes -->
+        <record model="ir.actions.act_window" id="action_listado">
+            <field name="name">Name</field>
+            <field name="view_id" ref="view_infoenergia_polissa_tree"/>
+            <field name="res_model">giscedata.polissa</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+        </record>
+        <!-- Menú per llistar les tarifes -->
+        <menuitem id="menu_tarifes" parent="menu_configuracio" action="action_listado"/>
+    </data>
+</openerp>
